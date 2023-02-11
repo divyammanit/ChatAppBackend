@@ -10,11 +10,11 @@ const router=require('./router');
 
 const app=express();
 const server=http.createServer(app);
-const BACKEND_URL=process.env.BACKEND_URL;
+const BACKEND_URL=process.env.BACKEND_URL || '';
 
 const io = require("socket.io")(server, {
     cors: {
-      origin: `http://localhost:3000`,
+      origin: BACKEND_URL,
       methods: ["GET", "POST"]
     }
 });
